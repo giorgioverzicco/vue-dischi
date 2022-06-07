@@ -1,21 +1,28 @@
 <template>
-  <main class="w-full mx-auto md:w-3/4 py-14">
+  <main class="w-full px-5 mx-auto md:w-3/4 md:px-0 py-14">
     <div class="grid-album">
-      <MCardAlbum />
-      <MCardAlbum />
-      <MCardAlbum />
-      <MCardAlbum />
-      <MCardAlbum />
-      <MCardAlbum />
+      <MCardAlbum v-for="(album, idx) in albums" :key="idx" :album="album" />
     </div>
   </main>
 </template>
 
 <script>
+import axios from "axios";
+
 import MCardAlbum from "../molecules/MCardAlbum.vue";
 export default {
   components: { MCardAlbum },
   name: "OMain",
+  data() {
+    return {
+      albums: [],
+    };
+  },
+  created() {
+    axios.get("https://flynn.boolean.careers/exercises/api/array/music").then((response) => {
+      this.albums = response.data.response;
+    });
+  },
 };
 </script>
 

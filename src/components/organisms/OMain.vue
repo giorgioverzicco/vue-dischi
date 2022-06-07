@@ -1,7 +1,10 @@
 <template>
   <main class="w-full px-5 mx-auto md:w-3/4 md:px-0 py-14">
-    <div class="grid-album">
+    <div v-if="albums.length >= 10" class="grid-album">
       <MCardAlbum v-for="(album, idx) in albums" :key="idx" :album="album" />
+    </div>
+    <div v-else class="flex items-center justify-center">
+      <SyncLoader color="#2ABE58" />
     </div>
   </main>
 </template>
@@ -10,8 +13,9 @@
 import axios from "axios";
 
 import MCardAlbum from "../molecules/MCardAlbum.vue";
+import SyncLoader from "../loaders/SyncLoader.vue";
 export default {
-  components: { MCardAlbum },
+  components: { MCardAlbum, SyncLoader },
   name: "OMain",
   data() {
     return {

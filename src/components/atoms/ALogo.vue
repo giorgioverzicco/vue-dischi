@@ -1,5 +1,5 @@
 <template>
-  <img class="h-full" src="http://via.placeholder.com/300" alt="Logo" />
+  <img class="h-full" src="@/assets/img/spotify-logo.png" alt="Spotify" />
 </template>
 
 <script>

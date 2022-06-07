@@ -34,11 +34,9 @@ export default {
 .grid-album {
   @apply grid
     justify-center
-    sm:grid-cols-2
-    md:grid-cols-3
-    lg:grid-cols-4
-    xl:grid-cols-5
     gap-x-10
     gap-y-6;
+
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 }
 </style>

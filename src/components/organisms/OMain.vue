@@ -1,6 +1,6 @@
 <template>
   <main class="w-full px-5 mx-auto md:w-3/4 md:px-0 py-14">
-    <div v-if="albums.length >= 10" class="grid-album">
+    <div v-if="loaded" class="grid-album">
       <MCardAlbum v-for="(album, idx) in albums" :key="idx" :album="album" />
     </div>
     <div v-else class="flex items-center justify-center">
@@ -20,12 +20,16 @@ export default {
   data() {
     return {
       albums: [],
+      loaded: false,
     };
   },
   created() {
-    axios.get("https://flynn.boolean.careers/exercises/api/array/music").then((response) => {
-      this.albums = response.data.response;
-    });
+    axios
+      .get("https://flynn.boolean.careers/exercises/api/array/music")
+      .then((response) => {
+        this.albums = response.data.response;
+      })
+      .finally(() => (this.loaded = true));
   },
 };
 </script>

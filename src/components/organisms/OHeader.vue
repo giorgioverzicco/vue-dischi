@@ -1,13 +1,29 @@
 <template>
   <header class="flex items-center h-20 px-5 py-3 bg-slate-blue-500">
     <ALogo />
+    <MSelectGenre :genres="genres" />
   </header>
 </template>
 
 <script>
+import states from "@/shared/states";
+
 import ALogo from "../atoms/ALogo.vue";
+import MSelectGenre from "../molecules/MSelectGenre.vue";
 export default {
   name: "OHeader",
-  components: { ALogo },
+  components: { ALogo, MSelectGenre },
+  data() {
+    return {
+      states,
+    };
+  },
+  computed: {
+    genres() {
+      const genres = this.states.albums.map((a) => a.genre);
+      const uniqueGenres = new Set(genres);
+      return [...uniqueGenres];
+    },
+  },
 };
 </script>

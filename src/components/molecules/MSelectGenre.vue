@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label for="genre">Genre:</label>
+    <label class="mr-4 text-lg text-white" for="genre">Generi</label>
     <select name="genre" v-model="states.selectedGenre">
       <option value="">Tutti</option>
       <option v-for="(genre, idx) in genres" :key="idx" :value="genre">

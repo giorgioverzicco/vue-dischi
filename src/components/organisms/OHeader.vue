@@ -1,5 +1,5 @@
 <template>
-  <header class="flex items-center h-20 px-5 py-3 bg-slate-blue-500">
+  <header class="flex items-center justify-between h-20 px-5 py-3 bg-slate-blue-500">
     <ALogo />
     <MSelectGenre />
   </header>

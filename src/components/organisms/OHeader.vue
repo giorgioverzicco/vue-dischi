@@ -1,7 +1,7 @@
 <template>
   <header class="flex items-center h-20 px-5 py-3 bg-slate-blue-500">
     <ALogo />
-    <MSelectGenre :genres="genres" />
+    <MSelectGenre />
   </header>
 </template>
 
@@ -17,13 +17,6 @@ export default {
     return {
       states,
     };
-  },
-  computed: {
-    genres() {
-      const genres = this.states.albums.map((a) => a.genre);
-      const uniqueGenres = new Set(genres);
-      return [...uniqueGenres];
-    },
   },
 };
 </script>

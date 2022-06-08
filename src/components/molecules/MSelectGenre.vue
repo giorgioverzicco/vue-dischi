@@ -15,16 +15,17 @@ import states from "@/shared/states";
 
 export default {
   name: "MSelectGenre",
-  props: {
-    genres: {
-      type: Array,
-      required: true,
-    },
-  },
   data() {
     return {
       states,
     };
+  },
+  computed: {
+    genres() {
+      const genres = this.states.albums.map((a) => a.genre);
+      const uniqueGenres = new Set(genres);
+      return [...uniqueGenres];
+    },
   },
 };
 </script>
